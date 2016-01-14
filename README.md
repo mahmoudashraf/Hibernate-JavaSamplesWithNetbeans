@@ -6,14 +6,14 @@ Installation Steps :
 1-Modify "hibernate.cfg.xml" file in src folder in each sample to be able to run it  -
 
 a-if you use mysql database donot change this property 
-"<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>"
+hibernate.connection.driver_class = com.mysql.jdbc.Driver 
 
 b-change host and port and database name to your owen   
-#<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sakila?zeroDateTimeBehavior=convertToNull</property>
+hibernate.connection.url = jdbc:mysql://localhost:3306/sakila?zeroDateTimeBehavior=convertToNull
 
 c-change username  
-#<property name="hibernate.connection.username">root</property>
+hibernate.connection.username = root
 
 d-change password 
-#<property name="hibernate.connection.password">123</property>
+hibernate.connection.password = 123
 
