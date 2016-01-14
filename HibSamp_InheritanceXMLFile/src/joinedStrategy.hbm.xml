@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entities.Person" table="Persons"  >
+        <id type="int" column="pk" name="id">
+            <generator class="increment" /> 
+        </id>
+        
+        <property column="Personname" name="name" />
+        
+        <joined-subclass  name="entities.Employee" table="Employee">
+            <key column="person_id"  />
+            <property type="string" column="Empjob" name="job" /> 
+            
+            <joined-subclass  name="entities.Engineer" table="engineer" >
+            <key column="emp_id"  />
+            <property type="string" column="function" name="function" /> 
+            
+            </joined-subclass>
+        
+
+            
+            
+        </joined-subclass>
+        
+        
+        
+        
+        
+        
+        
+    </class>
+  
+
+</hibernate-mapping>

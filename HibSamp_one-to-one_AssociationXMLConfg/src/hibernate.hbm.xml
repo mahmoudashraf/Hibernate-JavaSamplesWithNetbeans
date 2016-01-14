@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class  table="farmer" name="entities.Person"  >
+        <id  column="pk" type="integer" name="id" >
+            
+            <generator class="hilo"/>
+        </id>
+        <property name="name" column="famername"  type="string" length="50" />
+        
+        <one-to-one name="add" class="entities.Address" cascade="save-update" ></one-to-one>
+        
+        
+        
+        
+        
+        
+    </class>
+    
+    
+    <class  table="addresses" name="entities.Address"  >
+        <id  column="peronId" type="integer" name="PersonId" >
+            
+            <generator class="foreign">
+                
+                <param name="property">Person</param> 
+            </generator>
+        </id>
+        <property name="state" column="state"  type="string" length="50" />
+        <property name="city" column="city"  type="string" length="50" />
+        
+        <one-to-one name="Person" class="entities.Person" cascade="save-update" ></one-to-one>
+        
+        
+        
+        
+        
+        
+    </class>
+    
+    
+
+</hibernate-mapping>

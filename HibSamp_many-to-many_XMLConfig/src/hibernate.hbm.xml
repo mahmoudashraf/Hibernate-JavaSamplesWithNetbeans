@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class  table="Students" name="entities.Person">
+        <id column="pk" type="int" name="id" >
+            <generator class="increment"/>
+            
+        </id>
+        <property  name="name" column="Personname" type="string" /> 
+        <set  cascade="all" name="Courses">
+            <key  column="Sutudent_id"></key>
+            <many-to-many class="entities.Courses"  column="Course_Id"/> 
+        </set>
+    </class>  
+    
+      <class  table="Courses" name="entities.Courses">
+        <id column="pk" type="int" name="id" >
+            <generator class="increment"/>
+            
+        </id>
+        <property  name="name" column="Coursename" type="string" /> 
+        <set  cascade="all" name="Persons">
+            <key  column="Course_id"></key>
+            <many-to-many class="entities.Person"  column="Sutudent_id"/> 
+        </set>
+    </class> 
+    
+    
+    
+
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

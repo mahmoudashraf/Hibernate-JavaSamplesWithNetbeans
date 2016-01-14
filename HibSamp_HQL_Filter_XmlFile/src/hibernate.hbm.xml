@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class table="Notes" name="entities.Person">
+        <id column="pk"  name="id">
+            
+            <generator class="increment" /> 
+        </id>
+        <property column="personname" name="name" type="string"/>
+        
+        <filter name="bynamed" condition=":bynameflter = pk"  />
+ </class>
+    
+    <filter-def name="bynamed">
+        <filter-param  name="bynameflter" type="int" />
+    </filter-def>
+
+</hibernate-mapping>

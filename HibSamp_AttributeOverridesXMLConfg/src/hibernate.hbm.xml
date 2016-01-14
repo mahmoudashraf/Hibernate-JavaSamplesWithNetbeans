@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class  table="farmer" name="entities.Person"  >
+        <id  column="pk" type="integer" name="id" >
+            
+            <generator class="hilo"/>
+        </id>
+        <property name="name" column="famername"  type="string" length="50" />
+        
+        <component name="add" class="entities.Address">
+            
+            <property name="state" column="State" type="string" />
+            <property name="city" column="City" type="string" />
+            
+            
+        </component>
+        
+        
+        <component name="HomeAdd" class="entities.Address">
+            
+            <property name="state" column="homeState" type="string" />
+            <property name="city" column="HomeCity" type="string" />
+            
+            
+        </component>
+        
+        
+        
+    </class>
+    
+
+</hibernate-mapping>
